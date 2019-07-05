@@ -1,4 +1,5 @@
-<?php session_start();
+<?php
+    session_start();
     include('db.php');  
     $sql = "SELECT `pass` FROM `user` WHERE `name` = '{$_GET['name']}'";
     $result = mysqli_query($db, $sql);
