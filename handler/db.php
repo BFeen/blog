@@ -1,6 +1,6 @@
 <?php 
 
-    $db = mysqli_connect('localhost', 'root', '', 'blog');
+    $db = mysqli_connect('localhost', 'root', '', 'blog');  
     if (!$db) {
         echo 'Не удалось подключиться к базе данных';
         die();

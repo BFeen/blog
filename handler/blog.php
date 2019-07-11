@@ -1,17 +1,9 @@
 <?php 
     include('db.php');
     echo 'Блог';
-
-    // $template = [];
-
+// Выгрузка постов из БД
     $sql = "SELECT * FROM `blog`";
     $result = mysqli_query($db, $sql);
-    // while($data = mysqli_fetch_assoc($result)) {
-    //     $template[] = $data['id'];
-    //     $template[$data['id']][] = $data['description'];
-    //     $template[$data['id']][] = $data['post'];
-    //     $template[$data['id']][] = $data['date'];
-    // }
     while($data = mysqli_fetch_assoc($result)) {
         echo "
             <div class='post'>
@@ -24,23 +16,24 @@
     }
 ?>
 <script>
-    let header = document.querySelector('header');
-    let exitBtn = document.createElement('button');
-    exitBtn.classList.add('exit');
-    exitBtn.innerText = 'Выйти';
-    header.appendChild(exitBtn);
-
-    if (exitBtn != 0) {
-        exitBtn.addEventListener('click', function() {
-            let xhr = new XMLHttpRequest;
-            xhr.open('GET', 'handler/exit.php');
-            xhr.send();
-            xhr.addEventListener('load', function() {
-                if(xhr.responseText) {
-                    location.reload();
-                }
-            })
-        });
-    }
+let header = document.querySelector('header');
+let exitBtn = document.createElement('button');
+exitBtn.classList.add('exit');
+exitBtn.innerText = 'Выйти';
+header.appendChild(exitBtn);
+// exitBtn.style.opacity = '100';
+exitBtn.style.top = '10px';
+if (exitBtn != null) {
+    exitBtn.addEventListener('click', function() {
+        let xhr = new XMLHttpRequest;
+        xhr.open('GET', 'handler/exit.php');
+        xhr.send();
+        xhr.addEventListener('load', function() {
+            if(xhr.responseText) {
+                location.reload();
+            }
+        })
+    });
+}
 </script>
 <!-- <button class="exit">Выйти</button> -->
