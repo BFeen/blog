@@ -1,39 +1,21 @@
 <?php 
     include('db.php');
-    echo 'Блог';
 // Выгрузка постов из БД
-    $sql = "SELECT * FROM `blog`";
+    $sql = "SELECT * FROM `blog` WHERE `visibility` = 1";
     $result = mysqli_query($db, $sql);
-    while($data = mysqli_fetch_assoc($result)) {
-        echo "
-            <div class='post'>
-                <div class='post__item'>
+    if (mysqli_num_rows($result) == 0) {
+        echo "записей не найдено";
+    } else {
+        while($data = mysqli_fetch_assoc($result)) {
+            echo "
+                <div class='post__item clickable' data-post-id='{$data['id']}'>
                     <h3 class='post__title'>{$data['title']}</h3>
                     <p class='post__date'>{$data['date']}</p>
                     <p class='post__desc'>{$data['description']}</p>
-                </div>
-            </div>";
+                    <div class='post__delete'>&#10006;</div>
+                </div>";
+        }
     }
 ?>
-<script>
-let header = document.querySelector('header');
-let exitBtn = document.createElement('button');
-exitBtn.classList.add('exit');
-exitBtn.innerText = 'Выйти';
-header.appendChild(exitBtn);
-// exitBtn.style.opacity = '100';
-exitBtn.style.top = '10px';
-if (exitBtn != null) {
-    exitBtn.addEventListener('click', function() {
-        let xhr = new XMLHttpRequest;
-        xhr.open('GET', 'handler/exit.php');
-        xhr.send();
-        xhr.addEventListener('load', function() {
-            if(xhr.responseText) {
-                location.reload();
-            }
-        })
-    });
-}
-</script>
+
 <!-- <button class="exit">Выйти</button> -->

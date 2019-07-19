@@ -100,10 +100,13 @@ h1 {
   border-radius: 0 0 10px 10px;
   background-color: black;
   padding: 10px;
+  overflow: hidden;
   cursor: pointer;
 }
 
 .write__roll {
+  color: white;
+  opacity: 0;
   display: block;
   padding: 10px;
   font-weight: bold;
@@ -113,7 +116,7 @@ h1 {
 }
 
 .write__roll:hover {
-  color: white;
+  opacity: 1;
 }
 
 .write__form {
@@ -164,9 +167,6 @@ h1 {
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-top: 20px;
@@ -189,11 +189,7 @@ h1 {
   font-size: 16px;
 }
 
-.post__date {
-  font-size: 12px;
-}
-
-.post__desc {
+.post__date, .post__desc {
   font-size: 12px;
 }
 
