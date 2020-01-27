@@ -1,6 +1,7 @@
 <?php
     session_start();
-    include('db.php');  
+    $_SESSION['name'] = 'хуй с горы';
+    include($_SERVER['DOCUMENT_ROOT'] . '/handler/db.php');
     $sql = "SELECT `pass` FROM `user` WHERE `name` = '{$_GET['name']}'";
     $result = mysqli_query($db, $sql);
 

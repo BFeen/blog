@@ -1,5 +1,5 @@
 <?php 
-    include('db.php');
+    include($_SERVER['DOCUMENT_ROOT'] . '/handler/db.php');
     date_default_timezone_set('Europe/Moscow');
 
     $date = date('j.m.y \a\t H:i');
