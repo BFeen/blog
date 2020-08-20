@@ -13,11 +13,9 @@ writeRoll.addEventListener('click', function() {
     if (writeForm.style.display == '' || writeForm.style.display == 'none' ) {
         writeForm.style.display = 'flex';
         writeRoll.innerText = 'свернуть';
-        console.log('хуле ты кликаешь');
     } else {
         writeForm.style.display = 'none';
         writeRoll.innerText = 'написать';
-        console.log('раскликался нахуй');
     }
 });
 // Отправление нового поста в базу данных
@@ -124,12 +122,10 @@ function createExitBtn() {
 //                 form.remove();
 //                 animationEnter();
 //                 createExitBtn();
-// // вместо следующей хуйни должно быть что-то другое. Именно она вводит в заблуждение. 
 // // Нам достаточно получить имя сессии (что происходит в файле blog.php, если пароль правильный), 
 // // остальное всё должно открываться автоматически. Возможно, AJAX тут даже лишний, можно сделать и на php онли. 
 // // А из за того, что это AJAX, у тебя нет повторной проверки $_SESSION['name'] в index.php, поэтому только при перезагрузке
-// // начинают отрисовываться все детали, что прописаны в blog.php и не входят в ответ xhr.responseText, бля. 
-// // Нужно изучать Cookies
+// // начинают отрисовываться все детали, что прописаны в blog.php и не входят в ответ xhr.responseText.
 //                 openBlog();
 //             } else {
 //                 alert('go fuck yourself, ' + name + '!');
